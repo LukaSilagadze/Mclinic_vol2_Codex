@@ -1,6 +1,30 @@
 import { NavLink } from "react-router-dom";
 import { clinicData, navLinks } from "../data/clinicData.js";
-import ToothIcon from "./icons/ToothIcon.jsx";
+import FacebookIcon from "./icons/FacebookIcon.jsx";
+import InstagramIcon from "./icons/InstagramIcon.jsx";
+import YoutubeIcon from "./icons/YoutubeIcon.jsx";
+import WhatsappIcon from "./icons/WhatsappIcon.jsx";
+import Socials from "./socials";
+
+const socialLabels = {
+  facebook: "Facebook",
+  instagram: "Instagram",
+  youtube: "YouTube",
+  whatsapp: "WhatsApp",
+};
+
+const socialIcons = {
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  youtube: YoutubeIcon,
+  whatsapp: WhatsappIcon,
+};
+
+function SocialIcon({ platform }) {
+  const Icon = socialIcons[platform];
+  if (!Icon) return null;
+  return <Icon className="social-icon-svg" style={{ width: "20px", height: "20px" }} />;
+}
 
 export default function Footer() {
   return (
@@ -8,10 +32,13 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <ToothIcon />
+            <img src="/images/logo.jpg" alt="Mclinic Georgia Logo" className="footer-brand-mark" />
             <strong>{clinicData.name}</strong>
           </div>
           <p>Mclinic Georgia — თანამედროვე სტომატოლოგიური მომსახურება თბილისში.</p>
+          <div className="footer-socials" aria-label="სოციალური ბმულები">
+            <Socials />
+          </div>
         </div>
 
         <div>

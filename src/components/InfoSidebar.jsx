@@ -7,17 +7,7 @@ import ClockIcon from "./icons/ClockIcon.jsx";
 import LocationIcon from "./icons/LocationIcon.jsx";
 import PhoneIcon from "./icons/PhoneIcon.jsx";
 
-const socialLabels = {
-  facebook: "Facebook",
-  instagram: "Instagram",
-  youtube: "YouTube",
-  whatsapp: "WhatsApp",
-};
-
-function SocialIcon({ label }) {
-  const text = label === "Instagram" ? "IG" : label === "YouTube" ? "YT" : label === "WhatsApp" ? "WA" : "f";
-  return <span aria-hidden="true">{text}</span>;
-}
+import Socials from "./socials.jsx";
 
 export default function InfoSidebar({ open, onClose }) {
   useEffect(() => {
@@ -113,12 +103,8 @@ export default function InfoSidebar({ open, onClose }) {
             </p>
           </section>
 
-          <div className="sidebar-socials" aria-label="სოციალური ბმულები">
-            {Object.entries(clinicData.socialLinks).map(([key, href]) => (
-              <a key={key} href={href} aria-label={socialLabels[key]}>
-                <SocialIcon label={socialLabels[key]} />
-              </a>
-            ))}
+          <div className="sidebar-socials">
+            <Socials theme="light" />
           </div>
         </div>
       </aside>

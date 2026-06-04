@@ -543,3 +543,81 @@
     padding: 22px;
   }
 }
+
+/* Socials Card Component Styling */
+.socials-card {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.socials-card .socialContainer {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+.socials-card .socialContainer:hover {
+  transition-duration: 0.3s;
+}
+
+.socials-card .containerInstagram:hover {
+  background: #d62976 !important;
+}
+
+.socials-card .containerFacebook:hover {
+  background: #1877f2 !important;
+}
+
+.socials-card .socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socials-card .socialSvg {
+  width: 17px;
+  height: 17px;
+}
+
+.socials-card .socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socials-card .socialContainer:hover .socialSvg {
+  animation: slide-in-top-socials 0.3s both;
+}
+
+@keyframes slide-in-top-socials {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Light Theme Variant */
+.socials-card.theme-light .socialContainer {
+  background-color: rgba(152, 168, 121, 0.14);
+}
+
+.socials-card.theme-light .socialSvg path {
+  fill: var(--color-secondary-dark);
+}
+
+.socials-card.theme-light .socialContainer:hover .socialSvg path {
+  fill: rgb(255, 255, 255);
+}
