@@ -11,25 +11,22 @@ import CheckIcon from "../components/icons/CheckIcon.jsx";
 import ClockIcon from "../components/icons/ClockIcon.jsx";
 import LocationIcon from "../components/icons/LocationIcon.jsx";
 import SmileIcon from "../components/icons/SmileIcon.jsx";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
 
-const reasons = [
-  { title: "სუფთა და ორგანიზებული გარემო", icon: CheckIcon },
-  { title: "თანამედროვე ტექნოლოგიებზე ორიენტირებული მიდგომა", icon: SmileIcon },
-  { title: "ყურადღებიანი და პროფესიონალური გუნდი", icon: CheckIcon },
-  { title: "ადაპტირებული სივრცე", icon: LocationIcon },
-  { title: "პარკინგი ადგილზე", icon: ClockIcon },
-];
+const reasonIcons = [CheckIcon, SmileIcon, CheckIcon, LocationIcon, ClockIcon];
 
 function WhyChooseUs() {
   const ref = useRevealOnScroll();
+  const { t } = useLanguage();
+  const reasons = t.why.reasons.map((title, index) => ({ title, icon: reasonIcons[index] }));
 
   return (
     <section className="section why-section">
       <div className="container">
         <div className="section-heading">
-          <p className="section-kicker">უპირატესობები</p>
-          <h2>რატომ Mclinic Georgia?</h2>
+          <p className="section-kicker">{t.why.kicker}</p>
+          <h2>{t.why.title}</h2>
         </div>
         <div ref={ref} className="why-grid reveal stagger-grid">
           {reasons.map((reason) => {
@@ -48,9 +45,11 @@ function WhyChooseUs() {
 }
 
 export default function Home() {
+  const { t } = useLanguage();
+
   useEffect(() => {
-    document.title = "Mclinic Georgia | სტომატოლოგიური კლინიკა თბილისში";
-  }, []);
+    document.title = t.meta.home;
+  }, [t.meta.home]);
 
   return (
     <main>

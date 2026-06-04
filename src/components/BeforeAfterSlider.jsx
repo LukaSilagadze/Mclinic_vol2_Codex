@@ -1,16 +1,20 @@
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 export default function BeforeAfterSlider({
   beforeImage,
   afterImage,
-  beforeLabel = "მდე",
-  afterLabel = "შემდეგ",
+  beforeLabel,
+  afterLabel,
   title,
   description,
 }) {
+  const { t } = useLanguage();
   const [position, setPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
   const frameRef = useRef(null);
+  const resolvedBeforeLabel = beforeLabel || t.beforeAfter.before;
+  const resolvedAfterLabel = afterLabel || t.beforeAfter.after;
 
   const updatePosition = (clientX) => {
     const rect = frameRef.current?.getBoundingClientRect();
@@ -46,17 +50,17 @@ export default function BeforeAfterSlider({
           updatePosition(event.clientX);
         }}
       >
-        <img src={beforeImage} alt="სადემონსტრაციო ფოტო მკურნალობამდე" draggable="false" />
+        <img src={beforeImage} alt={t.beforeAfter.beforeAlt} draggable="false" />
         <div className="after-image-wrapper">
-          <img src={afterImage} alt="სადემონსტრაციო ფოტო მკურნალობის შემდეგ" draggable="false" />
+          <img src={afterImage} alt={t.beforeAfter.afterAlt} draggable="false" />
         </div>
-        <span className="comparison-label before">{beforeLabel}</span>
-        <span className="comparison-label after">{afterLabel}</span>
+        <span className="comparison-label before">{resolvedBeforeLabel}</span>
+        <span className="comparison-label after">{resolvedAfterLabel}</span>
         <span className="comparison-divider" aria-hidden="true" />
         <button
           className="comparison-handle"
           type="button"
-          aria-label="შედარების სლაიდერის გადაადგილება"
+          aria-label={t.beforeAfter.handleLabel}
           onPointerDown={(event) => {
             event.stopPropagation();
             setDragging(true);

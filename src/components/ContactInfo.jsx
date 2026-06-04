@@ -1,53 +1,53 @@
-import { clinicData } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import ClockIcon from "./icons/ClockIcon.jsx";
 import LocationIcon from "./icons/LocationIcon.jsx";
 import PhoneIcon from "./icons/PhoneIcon.jsx";
 import Socials from "./socials.jsx";
 
 export default function ContactInfo() {
-  const mapSrc = `https://www.google.com/maps?q=${clinicData.coordinates.latitude},${clinicData.coordinates.longitude}&z=16&output=embed`;
+  const { t } = useLanguage();
 
   return (
     <section className="section contact-section">
       <div className="container">
         <div className="contact-compact-layout">
           <article className="contact-info-panel">
-            <p className="section-kicker">კონტაქტი</p>
-            <h2>{clinicData.name}</h2>
+            <p className="section-kicker">{t.common.contact}</p>
+            <h2>{t.clinic.name}</h2>
 
             <div className="contact-info-list">
               <div className="contact-info-row">
-                <PhoneIcon />
+                  <PhoneIcon />
                 <div>
-                  <strong>ტელეფონი</strong>
-                  <a href={clinicData.phoneHref}>{clinicData.phone}</a>
+                  <strong>{t.pages.contact.phone}</strong>
+                  <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
                 </div>
               </div>
 
               <div className="contact-info-row">
                 <LocationIcon />
                 <div>
-                  <strong>მისამართი</strong>
-                  <span>{clinicData.address}</span>
+                  <strong>{t.pages.contact.address}</strong>
+                  <span>{t.clinic.address}</span>
                 </div>
               </div>
 
               <div className="contact-info-row">
                 <ClockIcon />
                 <div>
-                  <strong>სამუშაო საათები</strong>
-                  <span>ორშაბათი - პარასკევი: 10:00 - 20:00</span>
+                  <strong>{t.clinic.hoursLabel}</strong>
+                  <span>{t.clinic.weekdayHours}</span>
                 </div>
               </div>
             </div>
 
-            <p className="appointment-note">ვიზიტი წინასწარი დაჯავშნითაა.</p>
+            <p className="appointment-note">{t.pages.contact.appointmentNote}</p>
 
             <div className="contact-actions">
-              <a className="btn btn-primary" href={clinicData.phoneHref}>
-                დარეკვა
+              <a className="btn btn-primary" href={t.clinic.phoneHref}>
+                {t.clinic.call}
               </a>
-              <a className="btn btn-outline" href={clinicData.googleMapsUrl} target="_blank" rel="noreferrer">
+              <a className="btn btn-outline" href={t.clinic.googleMapsUrl} target="_blank" rel="noreferrer">
                 Google Maps
               </a>
             </div>

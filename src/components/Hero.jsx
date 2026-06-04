@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { clinicData } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { publicAsset } from "../utils/publicAsset.js";
 import StarIcon from "./icons/StarIcon.jsx";
 
@@ -12,6 +12,7 @@ const heroSlides = [
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const sliderTimer = window.setInterval(() => {
@@ -34,25 +35,25 @@ export default function Hero() {
         ))}
       </div>
       <div className="container home-hero-content">
-        <p className="hero-eyebrow">Mclinic Georgia • თბილისი</p>
-        <h1>თანამედროვე სტომატოლოგიური მომსახურება მშვიდ გარემოში</h1>
-        <p>
-          პროფესიონალური სტომატოლოგიური მკურნალობა სუფთა, ორგანიზებულ და თანამედროვე კლინიკაში.
-        </p>
+        <p className="hero-eyebrow">{t.hero.eyebrow}</p>
+        <h1>{t.hero.title}</h1>
+        <p>{t.hero.text}</p>
         <div className="hero-actions">
           <Link className="btn btn-hero-outline" to="/services">
-            სერვისების ნახვა
+            {t.hero.action}
           </Link>
         </div>
-        <div className="hero-rating" aria-label={`Google შეფასება ${clinicData.rating.stars}`}>
-          <span>Google შეფასება</span>
-          <strong>{clinicData.rating.stars}</strong>
+        <div className="hero-rating" aria-label={`${t.common.googleRating} ${t.clinic.rating.stars}`}>
+          <span>{t.common.googleRating}</span>
+          <strong>{t.clinic.rating.stars}</strong>
           <span className="rating-stars">
             {Array.from({ length: 5 }).map((_, index) => (
               <StarIcon key={index} />
             ))}
           </span>
-          <span>{clinicData.rating.reviewCount} შეფასება</span>
+          <span>
+            {t.clinic.rating.reviewCount} {t.hero.reviewCount}
+          </span>
         </div>
       </div>
     </section>

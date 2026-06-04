@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { clinicData, navLinks } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { publicAsset } from "../utils/publicAsset.js";
 import CloseIcon from "./icons/CloseIcon.jsx";
 import CheckIcon from "./icons/CheckIcon.jsx";
@@ -11,6 +11,8 @@ import PhoneIcon from "./icons/PhoneIcon.jsx";
 import Socials from "./socials.jsx";
 
 export default function InfoSidebar({ open, onClose }) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (!open) return undefined;
 
@@ -34,38 +36,38 @@ export default function InfoSidebar({ open, onClose }) {
       <button
         className={`sidebar-overlay ${open ? "open" : ""}`}
         type="button"
-        aria-label="პანელის დახურვა"
+        aria-label={t.sidebar.overlayLabel}
         onClick={onClose}
       />
-      <aside className={`info-sidebar ${open ? "open" : ""}`} aria-modal="true" role="dialog" aria-label="Mclinic Georgia ინფორმაცია">
+      <aside className={`info-sidebar ${open ? "open" : ""}`} aria-modal="true" role="dialog" aria-label={t.sidebar.dialogLabel}>
         <div className="sidebar-top">
           <div className="sidebar-brand">
             <img className="sidebar-brand-mark" src={publicAsset("images/logo_small.jpg")} alt="" />
             <div>
-              <strong>{clinicData.name}</strong>
+              <strong>{t.clinic.name}</strong>
             </div>
           </div>
-          <button className="sidebar-close" type="button" aria-label="დახურვა" onClick={onClose}>
+          <button className="sidebar-close" type="button" aria-label={t.common.close} onClick={onClose}>
             <CloseIcon />
           </button>
         </div>
 
-        <nav className="mobile-sidebar-nav" aria-label="მობილური ნავიგაცია">
-          {navLinks.map((link) => (
+        <nav className="mobile-sidebar-nav" aria-label={t.common.mobileNav}>
+          {t.nav.map((link) => (
             <NavLink key={link.to} to={link.to} onClick={onClose}>
               {link.label}
             </NavLink>
           ))}
-          <a className="btn btn-primary" href={clinicData.phoneHref}>
-            დარეკვა
+          <a className="btn btn-primary" href={t.clinic.phoneHref}>
+            {t.clinic.call}
           </a>
         </nav>
 
         <div className="sidebar-info-content">
           <section className="sidebar-section">
-            <h2>სერვისები</h2>
+            <h2>{t.common.services}</h2>
             <ul className="sidebar-list">
-              {clinicData.sidebarServices.map((service) => (
+              {t.clinic.sidebarServices.map((service) => (
                 <li key={service}>
                   <CheckIcon />
                   <span>{service}</span>
@@ -75,33 +77,30 @@ export default function InfoSidebar({ open, onClose }) {
           </section>
 
           <section className="sidebar-section">
-            <h2>კონტაქტი</h2>
+            <h2>{t.common.contact}</h2>
             <div className="sidebar-contact-list">
               <p>
                 <ClockIcon />
-                <span>ორშაბათი - პარასკევი: 10:00 - 20:00</span>
+                <span>{t.clinic.weekdayHours}</span>
               </p>
               <p>
                 <ClockIcon />
-                <span>შაბათი: 11:00 - 18:00</span>
+                <span>{t.clinic.saturdayHours}</span>
               </p>
               <p>
                 <LocationIcon />
-                <span>{clinicData.shortAddress}</span>
+                <span>{t.clinic.shortAddress}</span>
               </p>
               <p>
                 <PhoneIcon />
-                <a href={clinicData.phoneHref}>{clinicData.phone}</a>
+                <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
               </p>
             </div>
           </section>
 
           <section className="sidebar-section">
-            <h2>კლინიკის შესახებ</h2>
-            <p className="sidebar-about">
-              Mclinic Georgia არის სტომატოლოგიური კლინიკა თბილისში, რომელიც აერთიანებს პროფესიონალურ მიდგომას,
-              მშვიდ გარემოს და მრავალმხრივ სტომატოლოგიურ მომსახურებებს.
-            </p>
+            <h2>{t.pages.about.title}</h2>
+            <p className="sidebar-about">{t.sidebar.aboutText}</p>
           </section>
 
           <div className="sidebar-socials">

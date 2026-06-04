@@ -1,30 +1,29 @@
-import { clinicData } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import ClockIcon from "./icons/ClockIcon.jsx";
 import LocationIcon from "./icons/LocationIcon.jsx";
 import PhoneIcon from "./icons/PhoneIcon.jsx";
 
-const items = [
-  {
-    title: "გჭირდებათ სტომატოლოგიური მომსახურება?",
-    text: `დარეკეთ: ${clinicData.phone}`,
-    icon: PhoneIcon,
-  },
-  {
-    title: "სამუშაო საათები",
-    text: "ორშაბათი - პარასკევი",
-    time: "10:00 - 20:00",
-    icon: ClockIcon,
-  },
-  {
-    title: "მისამართი",
-    text: clinicData.shortAddress,
-    icon: LocationIcon,
-  },
-];
-
 export default function HeroInfoBar() {
+  const { t } = useLanguage();
+  const items = [
+    {
+      ...t.homeInfo.items[0],
+      text: `${t.homeInfo.items[0].text} ${t.clinic.phone}`,
+      icon: PhoneIcon,
+    },
+    {
+      ...t.homeInfo.items[1],
+      icon: ClockIcon,
+    },
+    {
+      ...t.homeInfo.items[2],
+      text: t.clinic.shortAddress,
+      icon: LocationIcon,
+    },
+  ];
+
   return (
-    <section className="hero-info-bar" aria-label="კლინიკის მოკლე ინფორმაცია">
+    <section className="hero-info-bar" aria-label={t.homeInfo.label}>
       <div className="container hero-info-grid">
         {items.map((item) => {
           const Icon = item.icon;

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
-import { clinicData } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import CheckIcon from "../components/icons/CheckIcon.jsx";
 import SmileIcon from "../components/icons/SmileIcon.jsx";
 import ImplantIcon from "../components/icons/ImplantIcon.jsx";
@@ -9,45 +9,26 @@ import BracesIcon from "../components/icons/BracesIcon.jsx";
 import ToothIcon from "../components/icons/ToothIcon.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
 
-const categories = [
-  {
-    title: "ესთეტიკური სტომატოლოგია",
-    description: "ღიმილის ესთეტიკის გაუმჯობესებაზე ორიენტირებული მკურნალობა.",
-    services: clinicData.services.aesthetic,
-    icon: SmileIcon,
-  },
-  {
-    title: "იმპლანტაცია და ქირურგია",
-    description: "ქირურგიული და აღდგენითი პროცედურები ფუნქციისა და კომფორტის აღსადგენად.",
-    services: clinicData.services.surgery,
-    icon: ImplantIcon,
-  },
-  {
-    title: "ორთოდონტია",
-    description: "კბილების მდებარეობისა და თანკბილვის კორექციაზე ორიენტირებული მკურნალობა.",
-    services: clinicData.services.orthodontics,
-    icon: BracesIcon,
-  },
-  {
-    title: "ზოგადი და ბავშვთა სტომატოლოგია",
-    description: "ყოველდღიური სტომატოლოგიური ზრუნვა ბავშვებისა და ზრდასრულებისთვის.",
-    services: clinicData.services.general,
-    icon: ToothIcon,
-  },
-];
+const categoryIcons = [SmileIcon, ImplantIcon, BracesIcon, ToothIcon];
 
 export default function Services() {
   const ref = useRevealOnScroll();
+  const { t } = useLanguage();
+  const categories = t.pages.services.categories.map((category, index) => ({
+    ...category,
+    services: t.clinic.services[category.servicesKey],
+    icon: categoryIcons[index],
+  }));
 
   useEffect(() => {
-    document.title = "Mclinic Georgia | სერვისები";
-  }, []);
+    document.title = t.meta.services;
+  }, [t.meta.services]);
 
   return (
     <main>
       <PageHero
-        title="სერვისები"
-        text="Mclinic Georgia გთავაზობთ სტომატოლოგიური მომსახურებების ფართო სპექტრს — ესთეტიკური მკურნალობიდან იმპლანტაციამდე და ორთოდონტიამდე."
+        title={t.pages.services.title}
+        text={t.pages.services.text}
       />
 
       <section className="section services-page-section">
@@ -83,16 +64,16 @@ export default function Services() {
         <div className="container">
           <div className="cta-panel">
             <div>
-              <p className="section-kicker">კონსულტაცია</p>
-              <h2>გჭირდებათ კონსულტაცია?</h2>
-              <p>დაგვიკავშირდით და შეარჩიეთ თქვენთვის საჭირო მიმართულება.</p>
+              <p className="section-kicker">{t.pages.services.ctaKicker}</p>
+              <h2>{t.pages.services.ctaTitle}</h2>
+              <p>{t.pages.services.ctaText}</p>
             </div>
             <div className="cta-actions">
-              <a className="btn btn-primary" href={clinicData.phoneHref}>
-                დარეკვა
+              <a className="btn btn-primary" href={t.clinic.phoneHref}>
+                {t.clinic.call}
               </a>
               <Link className="btn btn-outline" to="/contact">
-                კონტაქტი
+                {t.clinic.contact}
               </Link>
             </div>
           </div>

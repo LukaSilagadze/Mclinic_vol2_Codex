@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { clinicData, navLinks } from "../data/clinicData.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { publicAsset } from "../utils/publicAsset.js";
 import FacebookIcon from "./icons/FacebookIcon.jsx";
 import InstagramIcon from "./icons/InstagramIcon.jsx";
@@ -28,24 +28,26 @@ function SocialIcon({ platform }) {
 }
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
             <img src={publicAsset("images/logo.jpg")} alt="Mclinic Georgia Logo" className="footer-brand-mark" />
-            <strong>{clinicData.name}</strong>
+            <strong>{t.clinic.name}</strong>
           </div>
-          <p>Mclinic Georgia — თანამედროვე სტომატოლოგიური მომსახურება თბილისში.</p>
-          <div className="footer-socials" aria-label="სოციალური ბმულები">
+          <p>{t.footer.text}</p>
+          <div className="footer-socials" aria-label={t.common.socialLinks}>
             <Socials />
           </div>
         </div>
 
         <div>
-          <h2>ნავიგაცია</h2>
-          <nav className="footer-links" aria-label="ქვედა ნავიგაცია">
-            {navLinks.map((link) => (
+          <h2>{t.footer.navigation}</h2>
+          <nav className="footer-links" aria-label={t.common.footerNav}>
+            {t.nav.map((link) => (
               <NavLink key={link.to} to={link.to}>
                 {link.label}
               </NavLink>
@@ -54,16 +56,16 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2>კონტაქტი</h2>
+          <h2>{t.footer.contact}</h2>
           <address>
-            <a href={clinicData.phoneHref}>{clinicData.phone}</a>
-            <span>{clinicData.shortAddress}</span>
-            <span>ორშაბათი - პარასკევი</span>
-            <span>სამუშაო საათები: 10:00 - 20:00</span>
+            <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
+            <span>{t.clinic.shortAddress}</span>
+            <span>{t.clinic.weekdayRange}</span>
+            <span>{t.footer.hours}</span>
           </address>
         </div>
       </div>
-      <div className="container footer-bottom">© 2026 Mclinic Georgia. ყველა უფლება დაცულია.</div>
+      <div className="container footer-bottom">{t.footer.copyright}</div>
     </footer>
   );
 }

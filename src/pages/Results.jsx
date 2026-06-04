@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import PageHero from "../components/PageHero.jsx";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.jsx";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
 
 const svgPlaceholder = (background, accent, detail, variant) =>
@@ -16,19 +17,16 @@ const svgPlaceholder = (background, accent, detail, variant) =>
     </svg>
   `)}`;
 
-const cases = [
+const caseImages = [
   {
-    title: "ესთეტიკური აღდგენა",
     beforeImage: svgPlaceholder("#eef1ea", "#98A879", "#1f2933", 1),
     afterImage: svgPlaceholder("#f8faf5", "#7f8f63", "#98A879", 1),
   },
   {
-    title: "ორთოდონტიული მკურნალობა",
     beforeImage: svgPlaceholder("#f1f2ef", "#98A879", "#6b7280", 2),
     afterImage: svgPlaceholder("#ffffff", "#7f8f63", "#98A879", 2),
   },
   {
-    title: "გვირგვინის მოთავსება",
     beforeImage: svgPlaceholder("#ecefeb", "#98A879", "#1f2933", 3),
     afterImage: svgPlaceholder("#f8faf5", "#7f8f63", "#98A879", 3),
   },
@@ -36,17 +34,22 @@ const cases = [
 
 export default function Results() {
   const ref = useRevealOnScroll();
+  const { t } = useLanguage();
+  const cases = t.pages.results.cases.map((title, index) => ({
+    title,
+    ...caseImages[index],
+  }));
 
   useEffect(() => {
-    document.title = "Mclinic Georgia | შედეგები";
-  }, []);
+    document.title = t.meta.results;
+  }, [t.meta.results]);
 
   return (
     <main>
       <PageHero
-        title="შედეგები"
-        text="მკურნალობამდე და მკურნალობის შემდეგ სექცია განკუთვნილია კლინიკური შედეგების ვიზუალურად წარმოსაჩენად."
-        note="საბოლოო ვერსიაში აქ განთავსდება რეალური კლინიკური შემთხვევები, Mclinic Georgia-ს მიერ მოწოდებული ფოტოებით და პაციენტის თანხმობის საფუძველზე."
+        title={t.pages.results.title}
+        text={t.pages.results.text}
+        note={t.pages.results.note}
       />
 
       <section className="section results-section">
@@ -57,10 +60,10 @@ export default function Results() {
                 key={item.title}
                 beforeImage={item.beforeImage}
                 afterImage={item.afterImage}
-                beforeLabel="მდე"
-                afterLabel="შემდეგ"
+                beforeLabel={t.beforeAfter.before}
+                afterLabel={t.beforeAfter.after}
                 title={item.title}
-                description="სადემონსტრაციო მაგალითი — რეალური ფოტოები დაემატება მოგვიანებით."
+                description={t.pages.results.demoDescription}
               />
             ))}
           </div>
@@ -70,15 +73,15 @@ export default function Results() {
       <section className="section soft-section additional-gallery-section">
         <div className="container">
           <div className="section-heading">
-            <p className="section-kicker">გალერეა</p>
-            <h2>დამატებითი შემთხვევები</h2>
-            <p>აქ შესაძლებელია დაემატოს სხვა შემთხვევებიც — გვერდიგვერდ ფორმატით ან დამატებითი შედარების სლაიდერებით.</p>
+            <p className="section-kicker">{t.pages.results.galleryKicker}</p>
+            <h2>{t.pages.results.galleryTitle}</h2>
+            <p>{t.pages.results.galleryText}</p>
           </div>
           <div className="future-gallery-grid">
-            {["პირველი შემთხვევა", "მეორე შემთხვევა", "მესამე შემთხვევა"].map((item) => (
+            {t.pages.results.galleryItems.map((item) => (
               <article className="future-gallery-card" key={item}>
                 <span>{item}</span>
-                <strong>მდე / შემდეგ</strong>
+                <strong>{t.pages.results.beforeAfter}</strong>
               </article>
             ))}
           </div>
