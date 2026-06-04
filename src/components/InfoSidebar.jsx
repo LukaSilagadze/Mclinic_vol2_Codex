@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { clinicData, navLinks } from "../data/clinicData.js";
+import { publicAsset } from "../utils/publicAsset.js";
 import CloseIcon from "./icons/CloseIcon.jsx";
 import CheckIcon from "./icons/CheckIcon.jsx";
 import ClockIcon from "./icons/ClockIcon.jsx";
@@ -39,7 +40,7 @@ export default function InfoSidebar({ open, onClose }) {
       <aside className={`info-sidebar ${open ? "open" : ""}`} aria-modal="true" role="dialog" aria-label="Mclinic Georgia ინფორმაცია">
         <div className="sidebar-top">
           <div className="sidebar-brand">
-            <img className="sidebar-brand-mark" src="/images/logo_small.jpg" alt="" />
+            <img className="sidebar-brand-mark" src={publicAsset("images/logo_small.jpg")} alt="" />
             <div>
               <strong>{clinicData.name}</strong>
             </div>

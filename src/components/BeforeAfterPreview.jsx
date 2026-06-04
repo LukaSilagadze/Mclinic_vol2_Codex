@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
+import { publicAsset } from "../utils/publicAsset.js";
 import BeforeAfterSlider from "./BeforeAfterSlider.jsx";
 
-const beforeImage = "/images/before.png";
-const afterImage = "/images/after.png";
+const beforeImage = publicAsset("images/before.png");
+const afterImage = publicAsset("images/after.png");
 
 export default function BeforeAfterPreview() {
   const ref = useRevealOnScroll();

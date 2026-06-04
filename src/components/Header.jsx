@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { clinicData, navLinks } from "../data/clinicData.js";
+import { publicAsset } from "../utils/publicAsset.js";
 import InfoSidebar from "./InfoSidebar.jsx";
 import MenuIcon from "./icons/MenuIcon.jsx";
 
@@ -12,7 +13,7 @@ export default function Header() {
       <header className="site-header">
         <div className="container header-inner">
           <NavLink to="/" className="brand-link" aria-label="Mclinic Georgia">
-            <img className="brand-mark" src="/images/logo_small.jpg" alt="" />
+            <img className="brand-mark" src={publicAsset("images/logo_small.jpg")} alt="" />
             <span>{clinicData.name}</span>
           </NavLink>
 

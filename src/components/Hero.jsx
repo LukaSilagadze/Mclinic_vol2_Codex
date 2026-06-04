@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { clinicData } from "../data/clinicData.js";
+import { publicAsset } from "../utils/publicAsset.js";
 import StarIcon from "./icons/StarIcon.jsx";
 
 const heroSlides = [
-  "/images/slider_img1.jpg",
-  "/images/slider_img2.png",
-  "/images/Slider_img3.png",
+  publicAsset("images/slider_img1.jpg"),
+  publicAsset("images/slider_img2.png"),
+  publicAsset("images/Slider_img3.png"),
 ];
 
 export default function Hero() {

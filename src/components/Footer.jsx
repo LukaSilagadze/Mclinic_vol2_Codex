@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { clinicData, navLinks } from "../data/clinicData.js";
+import { publicAsset } from "../utils/publicAsset.js";
 import FacebookIcon from "./icons/FacebookIcon.jsx";
 import InstagramIcon from "./icons/InstagramIcon.jsx";
 import YoutubeIcon from "./icons/YoutubeIcon.jsx";
@@ -32,7 +33,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src="/images/logo.jpg" alt="Mclinic Georgia Logo" className="footer-brand-mark" />
+            <img src={publicAsset("images/logo.jpg")} alt="Mclinic Georgia Logo" className="footer-brand-mark" />
             <strong>{clinicData.name}</strong>
           </div>
           <p>Mclinic Georgia — თანამედროვე სტომატოლოგიური მომსახურება თბილისში.</p>
