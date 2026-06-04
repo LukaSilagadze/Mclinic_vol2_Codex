@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-white: #ffffff;
+  --color-secondary: #98a879;
+  --color-secondary-dark: #7f8f63;
+  --color-text: #1f2933;
+  --color-muted: #6b7280;
+  --color-soft: #f9fbee;
+  --color-border: #e5e7eb;
+  --color-black: #111827;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 12px;
+  --shadow-soft: 0 18px 50px rgba(31, 41, 51, 0.08);
+  --shadow-card: 0 10px 30px rgba(31, 41, 51, 0.06);
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 13px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: "Noto Sans Georgian", Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(152, 168, 121, 0.55);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(100% - 32px, var(--container));
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  padding: 13px 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-secondary-dark);
+}
+
+.btn-outline {
+  background: var(--color-white);
+  border-color: rgba(152, 168, 121, 0.55);
+  color: var(--color-secondary-dark);
+}
+
+.btn-outline:hover {
+  background: rgba(152, 168, 121, 0.11);
+  border-color: var(--color-secondary);
+}
+
+.btn-hero-outline {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.section {
+  padding: 68px 0;
+}
+
+.slim-section {
+  padding: 18px 0 68px;
+}
+
+.soft-section {
+  background: var(--color-soft);
+}
+
+.section-heading {
+  width: min(760px, 100%);
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-heading.left {
+  margin: 0;
+  text-align: left;
+}
+
+.section-heading h2,
+.cta-panel h2 {
+  margin: 0;
+  color: var(--color-black);
+  font-size: 2.45rem;
+  line-height: 1.16;
+}
+
+.section-heading p,
+.cta-panel p {
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.section-kicker {
+  margin: 0 0 10px;
+  color: var(--color-secondary-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.section-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-grid .reveal-card {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.stagger-grid.is-visible .reveal-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-grid.is-visible .reveal-card:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.stagger-grid.is-visible .reveal-card:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.stagger-grid.is-visible .reveal-card:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.stagger-grid.is-visible .reveal-card:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 54px 0;
+  }
+
+  .slim-section {
+    padding: 6px 0 54px;
+  }
+
+  .section-heading h2,
+  .cta-panel h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 24px, var(--container));
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2,
+  .cta-panel h2 {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

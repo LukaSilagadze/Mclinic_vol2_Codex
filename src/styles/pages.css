@@ -1,0 +1,515 @@
+.page-hero {
+  background: #fbfcf3;
+  padding: 70px 0 70px;
+}
+
+.page-hero-inner {
+  max-width: var(--container);
+  text-align: center;
+}
+
+.page-hero h1 {
+  margin: 0;
+  color: var(--color-black);
+  font-size: 4rem;
+  line-height: 1.08;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.page-hero-divider {
+  width: 100%;
+  height: 1px;
+  margin: 32px 0 24px;
+  background: rgba(17, 24, 39, 0.14);
+}
+
+.page-hero-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #8b98a8;
+  font-weight: 800;
+}
+
+.page-hero-breadcrumb strong {
+  color: var(--color-text);
+}
+
+.page-hero-breadcrumb span[aria-hidden="true"] {
+  color: #4b7bd6;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.service-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.service-category-card,
+.contact-card,
+.about-detail-card,
+.amenities-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.service-category-card {
+  padding: 24px;
+}
+
+.service-category-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.service-category-card h2,
+.contact-card h2,
+.map-card h2,
+.amenities-card h2,
+.about-copy h2,
+.about-detail-card h2 {
+  margin: 0;
+  color: var(--color-black);
+  line-height: 1.22;
+}
+
+.service-category-card p,
+.contact-card p,
+.map-card p,
+.about-copy p,
+.about-detail-card p {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+}
+
+.service-category-card ul,
+.about-detail-card ul,
+.amenities-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-category-card li,
+.about-detail-card li,
+.amenities-card li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
+  color: var(--color-text);
+}
+
+.service-category-card li svg,
+.about-detail-card li svg,
+.amenities-card li svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-secondary);
+  margin-top: 2px;
+}
+
+.service-bottom-cta {
+  padding-top: 0;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.results-grid .before-after-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.additional-gallery-section {
+  border-top: 1px solid var(--color-border);
+}
+
+.future-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.future-gallery-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px dashed rgba(152, 168, 121, 0.55);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  padding: 22px;
+}
+
+.future-gallery-card span {
+  color: var(--color-muted);
+}
+
+.future-gallery-card strong {
+  color: var(--color-secondary-dark);
+}
+
+.about-feature {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 58px;
+}
+
+.about-feature.reverse {
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.about-feature.reverse .about-copy {
+  order: 2;
+}
+
+.about-feature img,
+.about-detail-card img {
+  width: 100%;
+  height: 430px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-copy h2 {
+  font-size: 2.35rem;
+}
+
+.about-copy p {
+  font-size: 1.07rem;
+}
+
+.about-details-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+}
+
+.dental-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.doctor-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.doctor-avatar {
+  width: 74px;
+  height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(152, 168, 121, 0.14);
+  color: var(--color-secondary-dark);
+  font-weight: 900;
+}
+
+.doctor-card h3 {
+  margin: 10px 0 0;
+  color: var(--color-black);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.doctor-card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.about-detail-card {
+  padding: 24px;
+}
+
+.about-detail-card img {
+  height: 240px;
+  margin-top: 24px;
+  border-radius: var(--radius-md);
+}
+
+.contact-section {
+  background: var(--color-white);
+}
+
+.contact-compact-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.contact-info-panel,
+.contact-map-embed {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-info-panel {
+  padding: 28px;
+}
+
+.contact-info-panel h2 {
+  margin: 0;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.contact-info-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.contact-info-row {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.contact-info-row svg {
+  width: 38px;
+  height: 38px;
+  color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  background: rgba(152, 168, 121, 0.12);
+  padding: 9px;
+}
+
+.contact-info-row div {
+  display: grid;
+  gap: 3px;
+}
+
+.contact-info-row strong {
+  color: var(--color-black);
+}
+
+.contact-info-row a,
+.contact-info-row span {
+  color: var(--color-muted);
+}
+
+.contact-info-row a {
+  font-weight: 800;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.contact-map-embed {
+  min-height: 390px;
+  overflow: hidden;
+}
+
+.contact-map-embed iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  display: block;
+  border: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1.1fr;
+  gap: 20px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+}
+
+.contact-card .btn {
+  margin-top: auto;
+}
+
+.hours-card dl {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+
+.hours-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 8px;
+}
+
+.hours-card dt {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.hours-card dd {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.appointment-note {
+  border-radius: var(--radius-sm);
+  background: rgba(152, 168, 121, 0.1);
+  padding: 12px 14px;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.map-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(31, 41, 51, 0.72), rgba(31, 41, 51, 0.22)),
+    url("https://lh5.googleusercontent.com/p/AF1QipObZzQLCyMrmFtlPUY5p4LCOyGi5mH_8hmOoOLr=s1000");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.map-card h2,
+.map-card p,
+.map-card .section-kicker {
+  color: var(--color-white);
+}
+
+.map-card .btn {
+  align-self: flex-start;
+}
+
+.amenities-card {
+  padding: 24px;
+}
+
+.amenities-card h2 {
+  margin-bottom: 22px;
+}
+
+@media (max-width: 700px) {
+  .page-hero {
+    padding: 72px 0 54px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .page-hero-divider {
+    margin: 24px 0 18px;
+  }
+
+  .page-hero-breadcrumb {
+    gap: 9px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .results-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-compact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dental-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-feature,
+  .about-feature.reverse,
+  .about-details-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-feature.reverse .about-copy {
+    order: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .service-category-grid,
+  .future-gallery-grid,
+  .dental-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-category-header {
+    grid-template-columns: 1fr;
+  }
+
+  .about-copy h2 {
+    font-size: 1.85rem;
+  }
+
+  .about-feature img,
+  .about-detail-card img {
+    height: 300px;
+  }
+
+  .hours-card dl div {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .map-card {
+    min-height: 340px;
+    padding: 26px;
+  }
+}
