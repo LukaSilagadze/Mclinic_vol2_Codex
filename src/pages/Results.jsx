@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import PageHero from "../components/PageHero.jsx";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.jsx";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
+import { usePageMeta } from "../hooks/usePageMeta.js";
 
 const svgPlaceholder = (background, accent, detail, variant) =>
   `data:image/svg+xml;utf8,${encodeURIComponent(`
@@ -35,14 +35,12 @@ const caseImages = [
 export default function Results() {
   const ref = useRevealOnScroll();
   const { t } = useLanguage();
-  const cases = t.pages.results.cases.map((title, index) => ({
-    title,
-    ...caseImages[index],
+  const cases = caseImages.map((images, index) => ({
+    title: t.pages.results.cases[index],
+    ...images,
   }));
 
-  useEffect(() => {
-    document.title = t.meta.results;
-  }, [t.meta.results]);
+  usePageMeta({ title: t.meta.results, description: t.pages.results.text });
 
   return (
     <main>

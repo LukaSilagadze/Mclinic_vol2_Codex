@@ -68,6 +68,7 @@ export default function ContactInfo() {
 
           <div className="contact-map-embed">
             <iframe
+              title={`${t.clinic.name} Google Maps`}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.687222310107!2d44.749238999999996!3d41.7272677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404473201f14400b%3A0x427d2d5874812ddd!2sMclinic%20Georgia!5e0!3m2!1sen!2sge!4v1780562784603!5m2!1sen!2sge"
               width="600"
               height="450"

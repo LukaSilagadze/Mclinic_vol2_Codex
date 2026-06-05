@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import CheckIcon from "../components/icons/CheckIcon.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
+import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function About() {
   const ref = useRevealOnScroll();
@@ -11,9 +11,7 @@ export default function About() {
   const { t } = useLanguage();
   const { about } = t.pages;
 
-  useEffect(() => {
-    document.title = t.meta.about;
-  }, [t.meta.about]);
+  usePageMeta({ title: t.meta.about, description: about.text });
 
   return (
     <main>
@@ -29,7 +27,7 @@ export default function About() {
             <h2>{about.clinicTitle}</h2>
             <p>{about.clinicText}</p>
           </div>
-          <img src={t.clinic.images.interior} alt={about.interiorAlt} />
+          <img src={t.clinic.images.interior} alt={about.interiorAlt} loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -80,7 +78,7 @@ export default function About() {
             <p className="section-kicker">{about.parkingKicker}</p>
             <h2>{about.parkingTitle}</h2>
             <p>{about.parkingText}</p>
-            <img src={t.clinic.images.exterior} alt={about.exteriorAlt} />
+            <img src={t.clinic.images.exterior} alt={about.exteriorAlt} loading="lazy" decoding="async" />
           </article>
         </div>
       </section>
@@ -92,7 +90,7 @@ export default function About() {
             <h2>{about.environmentTitle}</h2>
             <p>{about.environmentText}</p>
           </div>
-          <img src={t.clinic.images.product} alt={about.productAlt} />
+          <img src={t.clinic.images.product} alt={about.productAlt} loading="lazy" decoding="async" />
         </div>
       </section>
 

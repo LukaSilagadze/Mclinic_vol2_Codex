@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
@@ -8,6 +7,7 @@ import ImplantIcon from "../components/icons/ImplantIcon.jsx";
 import BracesIcon from "../components/icons/BracesIcon.jsx";
 import ToothIcon from "../components/icons/ToothIcon.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
+import { usePageMeta } from "../hooks/usePageMeta.js";
 
 const categoryIcons = [SmileIcon, ImplantIcon, BracesIcon, ToothIcon];
 
@@ -20,9 +20,7 @@ export default function Services() {
     icon: categoryIcons[index],
   }));
 
-  useEffect(() => {
-    document.title = t.meta.services;
-  }, [t.meta.services]);
+  usePageMeta({ title: t.meta.services, description: t.pages.services.text });
 
   return (
     <main>

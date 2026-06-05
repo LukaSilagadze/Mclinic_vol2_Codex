@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Hero from "../components/Hero.jsx";
 import HeroInfoBar from "../components/HeroInfoBar.jsx";
 import TrustStats from "../components/TrustStats.jsx";
@@ -13,6 +12,7 @@ import LocationIcon from "../components/icons/LocationIcon.jsx";
 import SmileIcon from "../components/icons/SmileIcon.jsx";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
+import { usePageMeta } from "../hooks/usePageMeta.js";
 
 const reasonIcons = [CheckIcon, SmileIcon, CheckIcon, LocationIcon, ClockIcon];
 
@@ -47,9 +47,7 @@ function WhyChooseUs() {
 export default function Home() {
   const { t } = useLanguage();
 
-  useEffect(() => {
-    document.title = t.meta.home;
-  }, [t.meta.home]);
+  usePageMeta({ title: t.meta.home, description: t.hero.text });
 
   return (
     <main>

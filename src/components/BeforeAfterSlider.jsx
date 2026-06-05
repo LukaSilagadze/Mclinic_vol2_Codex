@@ -50,9 +50,9 @@ export default function BeforeAfterSlider({
           updatePosition(event.clientX);
         }}
       >
-        <img src={beforeImage} alt={t.beforeAfter.beforeAlt} draggable="false" />
+        <img src={beforeImage} alt={t.beforeAfter.beforeAlt} draggable="false" loading="lazy" decoding="async" />
         <div className="after-image-wrapper">
-          <img src={afterImage} alt={t.beforeAfter.afterAlt} draggable="false" />
+          <img src={afterImage} alt={t.beforeAfter.afterAlt} draggable="false" loading="lazy" decoding="async" />
         </div>
         <span className="comparison-label before">{resolvedBeforeLabel}</span>
         <span className="comparison-label after">{resolvedAfterLabel}</span>
