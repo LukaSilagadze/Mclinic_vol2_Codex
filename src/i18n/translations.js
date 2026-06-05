@@ -1,6 +1,6 @@
 export const languages = [
-  { code: "ka", label: "Georgian", nativeLabel: "ქართული", shortLabel: "KA" },
-  { code: "en", label: "English", nativeLabel: "English", shortLabel: "EN" },
+  { code: "ka", label: "Georgian", nativeLabel: "ქართული", shortLabel: "GEO" },
+  { code: "en", label: "English", nativeLabel: "English", shortLabel: "UK" },
   { code: "ru", label: "Russian", nativeLabel: "Русский", shortLabel: "RU" },
 ];
 
@@ -8,6 +8,8 @@ const shared = {
   name: "Mclinic Georgia",
   phone: "+995 593 66 86 81",
   phoneHref: "tel:+995593668681",
+  email: "mclinicgeorgia@gmail.com",
+  emailHref: "mailto:mclinicgeorgia@gmail.com",
   googleMapsUrl: "https://maps.app.goo.gl/mQ6Tnmm5fAk9JBgp6",
   website: "https://microscope.ge/mclinic",
   coordinates: {
@@ -24,8 +26,8 @@ const shared = {
     product: "https://lh5.googleusercontent.com/p/AF1QipP-5ip3sNjsBwb-TPKaTNe1C3EhUqYuXr6IDAAZ=s1000",
   },
   socialLinks: {
-    facebook: "#",
-    instagram: "#",
+    facebook: "https://www.facebook.com/Mclinic.georgia",
+    instagram: "https://www.instagram.com/mclinic_georgia/",
     youtube: "#",
     whatsapp: "#",
   },
@@ -242,6 +244,7 @@ export const translations = {
         title: "კონტაქტი",
         text: "დაგვიკავშირდით ვიზიტის დასაგეგმად ან იხილეთ კლინიკის მდებარეობა რუკაზე.",
         phone: "ტელეფონი",
+        email: "ელფოსტა",
         address: "მისამართი",
         appointmentNote: "ვიზიტი წინასწარი დაჯავშნითაა.",
       },
@@ -444,6 +447,7 @@ export const translations = {
         title: "Contact",
         text: "Contact us to schedule a visit or view the clinic location on the map.",
         phone: "Phone",
+        email: "Email",
         address: "Address",
         appointmentNote: "Visits are by prior appointment.",
       },
@@ -646,6 +650,7 @@ export const translations = {
         title: "Контакты",
         text: "Свяжитесь с нами, чтобы запланировать визит, или посмотрите расположение клиники на карте.",
         phone: "Телефон",
+        email: "Эл. почта",
         address: "Адрес",
         appointmentNote: "Визиты проводятся по предварительной записи.",
       },

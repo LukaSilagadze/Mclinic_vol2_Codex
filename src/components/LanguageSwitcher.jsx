@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
+import { publicAsset } from "../utils/publicAsset.js";
 
 function GeorgiaFlag() {
   return (
-    <svg viewBox="0 0 640 480" aria-hidden="true" focusable="false">
-      <rect width="640" height="480" fill="#fff" />
-      <path fill="#e30a17" d="M274 0h92v480h-92zM0 194h640v92H0z" />
-      <path fill="#e30a17" d="M123 75h28v124h-28zM75 123h124v28H75zM489 75h28v124h-28zM441 123h124v28H441zM123 281h28v124h-28zM75 329h124v28H75zM489 281h28v124h-28zM441 329h124v28H441z" />
-    </svg>
+    <img src={publicAsset("images/geo.webp")} alt="" aria-hidden="true" />
   );
 }
 
@@ -93,7 +90,7 @@ export default function LanguageSwitcher() {
                 <span className="language-flag">
                   <Flag />
                 </span>
-                <span>{item.nativeLabel}</span>
+                <span>{item.shortLabel}</span>
               </button>
             );
           })}

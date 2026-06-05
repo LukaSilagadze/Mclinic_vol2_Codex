@@ -91,7 +91,7 @@
 .language-option {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border: 1px solid rgba(31, 41, 51, 0.12);
   background: var(--color-white);
   color: var(--color-black);
@@ -101,30 +101,33 @@
 }
 
 .language-trigger {
-  height: 42px;
+  height: 34px;
   border-radius: var(--radius-full);
-  padding: 0 12px;
+  padding: 0 9px;
   box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+  font-size: 0.82rem;
 }
 
 .language-flag {
   display: inline-flex;
-  width: 22px;
-  height: 16px;
+  width: 18px;
+  height: 13px;
   overflow: hidden;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(31, 41, 51, 0.12);
 }
 
-.language-flag svg {
+.language-flag svg,
+.language-flag img {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .language-chevron {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
@@ -134,7 +137,7 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 160px;
+  min-width: 92px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-white);
@@ -146,8 +149,9 @@
   width: 100%;
   border: none;
   border-radius: 6px;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  font-size: 0.82rem;
 }
 
 .language-option:hover,
@@ -218,9 +222,9 @@
 }
 
 .sidebar-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 42px;
+  align-items: center;
   gap: 18px;
   padding-bottom: 22px;
   border-bottom: 1px solid rgba(152, 168, 121, 0.28);
@@ -483,21 +487,21 @@
   }
 }
 .language-trigger {
-  min-width: 78px;
+  min-width: 66px;
 }
 
 @media (max-width: 640px) {
   .language-trigger {
-    min-width: 68px;
-    height: 38px;
-    padding: 0 10px;
+    min-width: 62px;
+    height: 32px;
+    padding: 0 8px;
   }
 
   .language-trigger > span:nth-child(2) {
-    font-size: 0.86rem;
+    font-size: 0.78rem;
   }
 
   .language-menu {
-    min-width: 150px;
+    min-width: 88px;
   }
 }

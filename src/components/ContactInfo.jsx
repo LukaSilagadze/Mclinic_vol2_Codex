@@ -1,5 +1,6 @@
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import ClockIcon from "./icons/ClockIcon.jsx";
+import EmailIcon from "./icons/EmailIcon.jsx";
 import LocationIcon from "./icons/LocationIcon.jsx";
 import PhoneIcon from "./icons/PhoneIcon.jsx";
 import Socials from "./socials.jsx";
@@ -21,6 +22,14 @@ export default function ContactInfo() {
                 <div>
                   <strong>{t.pages.contact.phone}</strong>
                   <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
+                </div>
+              </div>
+
+              <div className="contact-info-row">
+                <EmailIcon />
+                <div>
+                  <strong>{t.pages.contact.email}</strong>
+                  <a href={t.clinic.emailHref}>{t.clinic.email}</a>
                 </div>
               </div>
 

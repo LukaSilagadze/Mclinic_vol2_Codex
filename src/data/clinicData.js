@@ -3,6 +3,8 @@ export const clinicData = {
   category: "სტომატოლოგიური კლინიკა",
   phone: "+995 593 66 86 81",
   phoneHref: "tel:+995593668681",
+  email: "mclinicgeorgia@gmail.com",
+  emailHref: "mailto:mclinicgeorgia@gmail.com",
   address: "მიხეილ ასათიანის 10, Tbilisi Gardens Tower 2, თბილისი 0186, საქართველო",
   shortAddress: "მიხეილ ასათიანის 10, Tbilisi Gardens Tower 2",
   googleMapsUrl: "https://maps.app.goo.gl/mQ6Tnmm5fAk9JBgp6",
@@ -84,10 +86,9 @@ export const clinicData = {
     product: "https://lh5.googleusercontent.com/p/AF1QipP-5ip3sNjsBwb-TPKaTNe1C3EhUqYuXr6IDAAZ=s1000",
   },
 
-  // Replace placeholder links with real clinic social links later.
   socialLinks: {
-    facebook: "#",
-    instagram: "#",
+    facebook: "https://www.facebook.com/Mclinic.georgia",
+    instagram: "https://www.instagram.com/mclinic_georgia/",
     youtube: "#",
     whatsapp: "#",
   },

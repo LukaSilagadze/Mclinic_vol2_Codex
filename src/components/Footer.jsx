@@ -59,6 +59,7 @@ export default function Footer() {
           <h2>{t.footer.contact}</h2>
           <address>
             <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
+            <a href={t.clinic.emailHref}>{t.clinic.email}</a>
             <span>{t.clinic.shortAddress}</span>
             <span>{t.clinic.weekdayRange}</span>
             <span>{t.footer.hours}</span>

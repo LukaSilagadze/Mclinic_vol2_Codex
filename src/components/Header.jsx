@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { publicAsset } from "../utils/publicAsset.js";
 import InfoSidebar from "./InfoSidebar.jsx";
-import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import MenuIcon from "./icons/MenuIcon.jsx";
 
 export default function Header() {
@@ -26,9 +25,8 @@ export default function Header() {
               </NavLink>
             ))}
           </nav>
-
+            
           <div className="header-actions">
-            <LanguageSwitcher />
             <a className="btn header-call" href={t.clinic.phoneHref}>
               {t.clinic.call}
             </a>

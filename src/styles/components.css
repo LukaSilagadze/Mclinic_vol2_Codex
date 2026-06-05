@@ -255,9 +255,9 @@
 
 .before-after-preview {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.95fr 0.85fr;
   align-items: center;
-  gap: 58px;
+  gap: 48px;
 }
 
 .before-after-preview .btn {
@@ -265,6 +265,8 @@
 }
 
 .before-after-card {
+  width: 100%;
+  max-width: 620px;
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -303,22 +305,22 @@
 
 .comparison-label {
   position: absolute;
-  top: 18px;
+  top: 14px;
   z-index: 3;
   border-radius: var(--radius-full);
-  padding: 8px 14px;
+  padding: 6px 12px;
   background: rgba(255, 255, 255, 0.86);
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 800;
 }
 
 .comparison-label.before {
-  left: 18px;
+  left: 14px;
 }
 
 .comparison-label.after {
-  right: 18px;
+  right: 14px;
 }
 
 .comparison-divider {
@@ -337,8 +339,8 @@
   top: 50%;
   left: var(--position);
   z-index: 5;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   border: 3px solid var(--color-secondary);
   border-radius: var(--radius-full);
   background: var(--color-white);
@@ -358,12 +360,12 @@
 }
 
 .comparison-handle::before {
-  left: 13px;
+  left: 11px;
   transform: translateY(-50%) rotate(-45deg);
 }
 
 .comparison-handle::after {
-  right: 13px;
+  right: 11px;
   transform: translateY(-50%) rotate(135deg);
 }
 
@@ -495,6 +497,10 @@
 
   .before-after-preview {
     gap: 34px;
+  }
+
+  .before-after-card {
+    max-width: none;
   }
 
   .cta-panel {

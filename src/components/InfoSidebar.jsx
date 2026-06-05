@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 import { publicAsset } from "../utils/publicAsset.js";
+import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import CloseIcon from "./icons/CloseIcon.jsx";
 import CheckIcon from "./icons/CheckIcon.jsx";
 import ClockIcon from "./icons/ClockIcon.jsx";
+import EmailIcon from "./icons/EmailIcon.jsx";
 import LocationIcon from "./icons/LocationIcon.jsx";
 import PhoneIcon from "./icons/PhoneIcon.jsx";
 
@@ -47,6 +49,7 @@ export default function InfoSidebar({ open, onClose }) {
               <strong>{t.clinic.name}</strong>
             </div>
           </div>
+          <LanguageSwitcher />
           <button className="sidebar-close" type="button" aria-label={t.common.close} onClick={onClose}>
             <CloseIcon />
           </button>
@@ -94,6 +97,10 @@ export default function InfoSidebar({ open, onClose }) {
               <p>
                 <PhoneIcon />
                 <a href={t.clinic.phoneHref}>{t.clinic.phone}</a>
+              </p>
+              <p>
+                <EmailIcon />
+                <a href={t.clinic.emailHref}>{t.clinic.email}</a>
               </p>
             </div>
           </section>
