@@ -4,7 +4,7 @@ import { publicAsset } from "../utils/publicAsset.js";
 
 function GeorgiaFlag() {
   return (
-    <img src={publicAsset("images/geo.webp")} alt="" aria-hidden="true" />
+    <img src={publicAsset("images/geo.webp")} width="18" height="13" alt="" aria-hidden="true" />
   );
 }
 

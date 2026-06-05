@@ -4,8 +4,8 @@ import { useRevealOnScroll } from "../hooks/useRevealOnScroll.js";
 import { publicAsset } from "../utils/publicAsset.js";
 import BeforeAfterSlider from "./BeforeAfterSlider.jsx";
 
-const beforeImage = publicAsset("images/before.png");
-const afterImage = publicAsset("images/after.png");
+const beforeImage = publicAsset("images/before.jpg");
+const afterImage = publicAsset("images/after.jpg");
 
 export default function BeforeAfterPreview() {
   const ref = useRevealOnScroll();
@@ -23,7 +23,12 @@ export default function BeforeAfterPreview() {
           </Link>
         </div>
         <div ref={ref} className="reveal">
-          <BeforeAfterSlider beforeImage={afterImage} afterImage={beforeImage} />
+          <BeforeAfterSlider
+            beforeImage={afterImage}
+            afterImage={beforeImage}
+            beforeDimensions={{ width: 776, height: 491 }}
+            afterDimensions={{ width: 778, height: 502 }}
+          />
         </div>
       </div>
     </section>

@@ -5,9 +5,9 @@ import { publicAsset } from "../utils/publicAsset.js";
 import StarIcon from "./icons/StarIcon.jsx";
 
 const heroSlides = [
-  publicAsset("images/slider_img1.jpg"),
-  publicAsset("images/slider_img2.png"),
-  publicAsset("images/Slider_img3.png"),
+  { src: publicAsset("images/slider_img1.jpg"), width: 2048, height: 622 },
+  { src: publicAsset("images/slider_img2.jpg"), width: 786, height: 569 },
+  { src: publicAsset("images/slider_img3.jpg"), width: 793, height: 569 },
 ];
 
 export default function Hero() {
@@ -28,9 +28,14 @@ export default function Hero() {
         {heroSlides.map((slide, index) => (
           <img
             className={`home-hero-slide${index === activeSlide ? " is-active" : ""}`}
-            src={slide}
+            src={slide.src}
+            width={slide.width}
+            height={slide.height}
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "low"}
+            decoding={index === 0 ? "sync" : "async"}
             alt=""
-            key={slide}
+            key={slide.src}
           />
         ))}
       </div>

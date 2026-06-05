@@ -27,7 +27,14 @@ export default function About() {
             <h2>{about.clinicTitle}</h2>
             <p>{about.clinicText}</p>
           </div>
-          <img src={t.clinic.images.interior} alt={about.interiorAlt} loading="lazy" decoding="async" />
+          <img
+            src={t.clinic.images.interior}
+            alt={about.interiorAlt}
+            width="1000"
+            height="750"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
@@ -78,7 +85,14 @@ export default function About() {
             <p className="section-kicker">{about.parkingKicker}</p>
             <h2>{about.parkingTitle}</h2>
             <p>{about.parkingText}</p>
-            <img src={t.clinic.images.exterior} alt={about.exteriorAlt} loading="lazy" decoding="async" />
+            <img
+              src={t.clinic.images.exterior}
+              alt={about.exteriorAlt}
+              width="1000"
+              height="750"
+              loading="lazy"
+              decoding="async"
+            />
           </article>
         </div>
       </section>
@@ -90,7 +104,14 @@ export default function About() {
             <h2>{about.environmentTitle}</h2>
             <p>{about.environmentText}</p>
           </div>
-          <img src={t.clinic.images.product} alt={about.productAlt} loading="lazy" decoding="async" />
+          <img
+            src={t.clinic.images.product}
+            alt={about.productAlt}
+            width="1000"
+            height="750"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 

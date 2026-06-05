@@ -8,6 +8,8 @@ export default function BeforeAfterSlider({
   afterLabel,
   title,
   description,
+  beforeDimensions = { width: 900, height: 560 },
+  afterDimensions = { width: 900, height: 560 },
 }) {
   const { t } = useLanguage();
   const [position, setPosition] = useState(50);
@@ -50,9 +52,25 @@ export default function BeforeAfterSlider({
           updatePosition(event.clientX);
         }}
       >
-        <img src={beforeImage} alt={t.beforeAfter.beforeAlt} draggable="false" loading="lazy" decoding="async" />
+        <img
+          src={beforeImage}
+          alt={t.beforeAfter.beforeAlt}
+          width={beforeDimensions.width}
+          height={beforeDimensions.height}
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="after-image-wrapper">
-          <img src={afterImage} alt={t.beforeAfter.afterAlt} draggable="false" loading="lazy" decoding="async" />
+          <img
+            src={afterImage}
+            alt={t.beforeAfter.afterAlt}
+            width={afterDimensions.width}
+            height={afterDimensions.height}
+            draggable="false"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <span className="comparison-label before">{resolvedBeforeLabel}</span>
         <span className="comparison-label after">{resolvedAfterLabel}</span>

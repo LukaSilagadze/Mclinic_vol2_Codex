@@ -35,7 +35,15 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src={publicAsset("images/logo.jpg")} alt="Mclinic Georgia Logo" className="footer-brand-mark" loading="lazy" decoding="async" />
+            <img
+              src={publicAsset("images/logo.jpg")}
+              alt="Mclinic Georgia Logo"
+              className="footer-brand-mark"
+              width="1080"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
             <strong>{t.clinic.name}</strong>
           </div>
           <p>{t.footer.text}</p>
